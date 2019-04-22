@@ -6,7 +6,7 @@ PImage test;
 PImage output;
 
 void setup(){
-  size(512,512);
+  size(1024,512);
   test = loadImage("test.png");
   test.loadPixels();
   output = createImage(test.width, test.height, RGB);
@@ -20,15 +20,19 @@ void setup(){
       int g = (int)green(tmp);
       int b = (int)blue(tmp);
       int a = (int)alpha(tmp);
-      output.pixels[truePos] = color(b,b,g);//color(255);//color((r + g + b) / 3);
+      output.pixels[truePos] = color(255-r,255-b,255-g);//color(255);//color((r + g + b) / 3);
       truePos++;
     }
   }
   output.updatePixels();
   output.save("output.png");
-  exit();
+  //exit();
 }
 
 void draw(){
-  
+  pushMatrix();
+  scale(.5);
+  image(test, 0,0);
+  image(output, 1024,0);
+  popMatrix();
 }

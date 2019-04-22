@@ -20,7 +20,7 @@ void setup(){
       int g = (int)green(tmp);
       int b = (int)blue(tmp);
       int a = (int)alpha(tmp);
-      output.pixels[truePos] = color((r + g + b) / 3);//color(255);//
+      output.pixels[pos] = color((r + g + b) / 3);//color(255);//
       truePos++;
     }
   }
